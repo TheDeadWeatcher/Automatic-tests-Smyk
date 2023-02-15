@@ -1,0 +1,1 @@
+export const smykHomeUrl: string = "https://www.smyk.com/";
