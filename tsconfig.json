@@ -15,7 +15,8 @@
     "include":[
         "./test/specs/**/*.ts",
         "./wdio.conf.ts",
-        "./test/pages/*.ts"
+        "./test/pages/*.ts",
+        "./test/config/*.ts"
 
     ]
 }

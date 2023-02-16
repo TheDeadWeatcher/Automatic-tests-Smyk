@@ -4,7 +4,7 @@
   "description": "Automation framework for smyk page",
   "main": "index.js",
   "scripts": {
-     "e2e": "wdio wdio.conf.ts --suite e2e",
+    "e2e": "wdio wdio.conf.ts --suite e2e",
     "debug": "wdio wdio.conf.ts --suite debug"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "save-dev": "^0.0.1-security"
   },
   "devDependencies": {
+    "@types/jquery": "^3.5.16",
     "@wdio/devtools-service": "^8.3.9",
     "@wdio/local-runner": "^8.3.9",
     "@wdio/mocha-framework": "^8.3.0",
