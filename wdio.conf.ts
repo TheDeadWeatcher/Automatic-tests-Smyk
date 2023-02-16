@@ -36,7 +36,7 @@ export const config: Options.Testrunner = {
   ],
 
   suites: {
-    debug: ["./test/specs/e2e/SearchBar.ts"],
+    debug: ["./test/specs/e2e/Searchbar.ts"],
 
     e2e: ["./test/specs/e2e/SearchBar.ts"],
   },

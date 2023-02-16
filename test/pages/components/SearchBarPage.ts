@@ -1,6 +1,10 @@
 class SearchBar {
-    get SearchInput(){
+    get searchInput(){
         return $ ("input#q")
+    }
+
+    async searchInputVisible (){
+        const input:WebdriverIO.Element = await this.searchInput;
     }
 }
 
