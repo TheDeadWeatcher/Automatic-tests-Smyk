@@ -9,3 +9,4 @@ export const emailAlertText: string = "must_be_a_wellformed_email_address";
 export const correctEmail: string = "test-newsletter@gmail.com";
 export const thanksAlertText: string =
   "Użytkownik jest już zapisany na newsletter";
+  export const starWarsPhrase: string = "star wars lego";

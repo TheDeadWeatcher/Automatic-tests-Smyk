@@ -11,6 +11,16 @@ class SearchResultPage{
         return $(".lazyload-wrapper > p>big"); // bigow jest 2, robot wybiera zawsze 1 
    }
 
+    get productIteamsDiv(){
+        return $(".complex-product__ribbons");
+    }
+
+    async productIteamsIsVisible(){
+        const iteams: WebdriverIO.Element = await this.productIteamsDiv;
+        await iteams.waitForDisplayed();
+    }
+
+
    async getIncorrectTitle ():Promise<string>{
     const title:WebdriverIO.Element = await this.incorrectTitle;
     await title.waitForDisplayed();
