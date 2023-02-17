@@ -23,6 +23,8 @@ class TopNav {
     return $("//span[contains(text(), 'Klocki')]");
   }
 
+
+
   async ClickOnLegoLink (){
     const lego: WebdriverIO.Element = await this.legoLink;
     await lego.waitForDisplayed();
