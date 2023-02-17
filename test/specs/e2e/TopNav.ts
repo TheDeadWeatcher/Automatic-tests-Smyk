@@ -1,6 +1,6 @@
 import GlobalPage from "../../pages/GlobalPage";
 import TopNavPage from "../../pages/components/TopNavPage";
-import { smykHomeUrl } from "../../config/pagesUrl";
+import { smykHomeUrl, klockiUrl} from "../../config/pagesUrl";
 
 describe("E2E - top navigation", async () => {
   it("Should open home page smyk.com and vefiry Url", async () => {
@@ -13,5 +13,6 @@ describe("E2E - top navigation", async () => {
     await TopNavPage.hoverCategoryLink();
     await TopNavPage.hoverToysAndGamesLink();
     await TopNavPage.ClickOnLegoLink();
+    await expect (browser).toHaveUrl(klockiUrl);
   })
 });
