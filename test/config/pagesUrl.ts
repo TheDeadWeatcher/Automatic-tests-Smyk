@@ -3,3 +3,4 @@ export const productResultUrl: string = "https://www.smyk.com/search?q=star%20wa
 export const klockiUrl: string = "https://www.smyk.com/zabawki-gry/klocki.html";
 export const starWarsResult: string =
   "https://www.smyk.com/search?q=star%20wars%20lego";
+export const vaderHeadUrl: string = "https://www.smyk.com/p/lego-star-wars-helm-dartha-vadera-75304-i6943457";

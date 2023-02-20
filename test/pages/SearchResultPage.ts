@@ -15,6 +15,25 @@ class SearchResultPage{
         return $(".complex-product__ribbons");
     }
 
+    get sideBarMarki (){
+        return $("//span[contains(text(), 'Marka')]");
+    }
+
+    get vaderHeadProduct(){
+        return $("img[alt='LEGO Star Wars, Hełm Dartha Vadera, 75304']");
+    }
+
+    async clickOnVaderHead(){
+        const vader: WebdriverIO.Element = await this.vaderHeadProduct;
+        await vader.scrollIntoView();
+        await vader.click();
+    }
+
+    async sideBarMarkiIsVisible(){
+        const bar: WebdriverIO.Element = await this.sideBarMarki;
+        await bar.waitForDisplayed();
+    }
+
     async productIteamsIsVisible(){
         const iteams: WebdriverIO.Element = await this.productIteamsDiv;
         await iteams.waitForDisplayed();
