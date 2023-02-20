@@ -2,11 +2,15 @@ import GlobalPage from "../../pages/GlobalPage";
 import SearchBarPage from "../../pages/components/SearchBarPage";
 import SearchResultPage from "../../pages/SearchResultPage";
 import ProductPage from "../../pages/ProductPage";
-import { smykHomeUrl,starWarsResult,vaderHeadUrl} from "../../config/pagesUrl";
+import { smykHomeUrl,starWarsResult,vaderHeadUrl, cardUrl} from "../../config/pagesUrl";
 import { starWarsPhrase, confirmPopupTitle } from "../../config/data";
+import TopNavPage from "../../pages/components/TopNavPage";
 
 describe("E2E - product", async () => {
   it("Should open home page smyk.com and vefiry Url", async () => {
+    
+    //let productPrice: string = "";
+
     await GlobalPage.openPage(smykHomeUrl, smykHomeUrl);
     await SearchBarPage.searchInputIsVisible();
   });
@@ -21,16 +25,18 @@ describe("E2E - product", async () => {
   it("Should  verify result search result, click on Vader head product, verify vaderhead product url", async () => {
     await expect(await SearchResultPage.getNumberOfProducts()).toEqual(36);
     await SearchResultPage.clickOnVaderHead();
-    await browser.pause(5000);
     await expect(browser).toHaveUrl(vaderHeadUrl);
     await ProductPage.clickOnAddToCartBtn();
+    // productPrice = await ProductPage.getProductPrice();
   });
-  // it("Should add to cart product, verify title of popup, close popup, verify number of products in basket counter", async () => {
-  //   await ProductPage.clickOnAddToCartBtn();
-  //   await expect (await ProductPage.getConfirmPopupTitle()).toContain(confirmPopupTitle);
-  //   await ProductPage.clickOnCloseBtnConfirmPopup();
-  //   await expect(browser).toHaveUrl(vaderHeadUrl);
-
-
-  // });
+  it("Should add to cart product, verify title of popup, close popup, verify number of products in basket counter", async () => {
+    await expect (await ProductPage.getConfirmPopupTitle()).toContain(confirmPopupTitle);
+    await ProductPage.clickOnCloseBtnConfirmPopup();
+    await expect(browser).toHaveUrl(vaderHeadUrl);
+    await expect (await ProductPage.getNumberOfProductInCard()).toContain("1");
+  });
+  it("Should click on card link and verify url also compare last price with product prices ", async ()=> {
+    await TopNavPage.ClikOnCardLink();
+    await expect (browser).toHaveUrl(cardUrl);
+  })
 });

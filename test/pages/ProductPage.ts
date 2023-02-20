@@ -15,6 +15,30 @@ class ProductPage {
     return $ (".counter")
   }
 
+  get confirmPopupTitle (){
+    return $ (".add-to-cart-confirmation__header-title--text")
+  }
+
+  get describeProductBtn (){
+    return $("//span[contains(text(), 'Opis produktu')]");
+  }
+
+  get productPrice (){
+    return $("div.price");
+  }
+
+  async getProductPrice (): Promise<string>{
+    const price: WebdriverIO.Element = await this.productPrice;
+    await price.waitForDisplayed();
+    return price.getValue();
+  }
+
+  async ClickDescribeProductBtn (){
+    const btn: WebdriverIO.Element = await this.describeProductBtn;
+    await btn.waitForDisplayed();
+    await btn.click();
+  }
+
   async getNumberOfProductInCard (): Promise<string>{
     const icon: WebdriverIO.Element = await this.cardCounterIcon;
     await icon.waitForDisplayed();
@@ -35,7 +59,7 @@ class ProductPage {
   }
 
   async getConfirmPopupTitle(): Promise<string> {
-    const title: WebdriverIO.Element = await this.confirmPopup;
+    const title: WebdriverIO.Element = await this.confirmPopupTitle;
     await title.waitForDisplayed();
     return await title.getText();
   }

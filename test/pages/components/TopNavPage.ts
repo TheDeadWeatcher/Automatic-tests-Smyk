@@ -11,6 +11,10 @@ class TopNav {
           .$("//span[contains(text(), 'Koszyk')]");
   };
 
+  get cardLink () {
+    return $ ("//span[contains(text(), 'Koszyk')]");
+  }
+
   get categoryLink() {
     return $("//span[contains(text(), 'Kategorie')]");
   }
@@ -23,7 +27,11 @@ class TopNav {
     return $("//span[contains(text(), 'Klocki')]");
   }
 
-
+  async ClikOnCardLink (){
+    const btn:WebdriverIO.Element = await this.cardLink;
+    await btn. waitForDisplayed();
+    await btn.click();
+  }
 
   async ClickOnLegoLink (){
     const lego: WebdriverIO.Element = await this.legoLink;
