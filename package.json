@@ -24,10 +24,12 @@
   "dependencies": {
     "-": "^0.0.1",
     "@wdio/cli": "^8.3.9",
+    "allure-commandline": "^2.21.0",
     "save-dev": "^0.0.1-security"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.16",
+    "@wdio/allure-reporter": "^8.3.5",
     "@wdio/devtools-service": "^8.3.9",
     "@wdio/local-runner": "^8.3.9",
     "@wdio/mocha-framework": "^8.3.0",
