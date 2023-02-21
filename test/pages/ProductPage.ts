@@ -30,7 +30,7 @@ class ProductPage {
   async getProductPrice (): Promise<string>{
     const price: WebdriverIO.Element = await this.productPrice;
     await price.waitForDisplayed();
-    return price.getValue();
+    return await price.getText();
   }
 
   async ClickDescribeProductBtn (){

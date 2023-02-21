@@ -7,10 +7,10 @@ import { starWarsPhrase, confirmPopupTitle } from "../../config/data";
 import TopNavPage from "../../pages/components/TopNavPage";
 
 describe("E2E - product", async () => {
-  it("Should open home page smyk.com and vefiry Url", async () => {
-    
-    //let productPrice: string = "";
 
+  let price: string = "";
+
+  it("Should open home page smyk.com and vefiry Url", async () => {
     await GlobalPage.openPage(smykHomeUrl, smykHomeUrl);
     await SearchBarPage.searchInputIsVisible();
   });
@@ -27,7 +27,7 @@ describe("E2E - product", async () => {
     await SearchResultPage.clickOnVaderHead();
     await expect(browser).toHaveUrl(vaderHeadUrl);
     await ProductPage.clickOnAddToCartBtn();
-    // productPrice = await ProductPage.getProductPrice();
+    price = await ProductPage.getProductPrice();
   });
   it("Should add to cart product, verify title of popup, close popup, verify number of products in basket counter", async () => {
     await expect (await ProductPage.getConfirmPopupTitle()).toContain(confirmPopupTitle);
@@ -38,5 +38,6 @@ describe("E2E - product", async () => {
   it("Should click on card link and verify url also compare last price with product prices ", async ()=> {
     await TopNavPage.ClikOnCardLink();
     await expect (browser).toHaveUrl(cardUrl);
-  })
+    await expect (await ProductPage.getProductPrice()).toContain(price);
+  });
 });
